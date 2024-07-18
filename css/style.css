@@ -1,0 +1,15 @@
+body {
+    font-size: 1vw;
+    background: var(--primary);
+    color: var(--secondary);
+    font-family: 'helvetica', sans-serif;
+}
+
+#container {
+    width: 100vw;
+    height: 100vh;
+}
+
+main {
+    overflow: hidden;
+}
