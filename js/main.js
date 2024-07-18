@@ -36,8 +36,7 @@ function headerFixed() {
 function mainBgAnimation() {
     const mainBook = gsap.utils.toArray('.main .book');
 
-    mainBook.forEach((elem, index) => {
-        console.log(elem);
+    mainBook.forEach((elem) => {
         gsap.timeline()
             .set('.book div img', {
                 filter: 'blur(10px)',
@@ -121,7 +120,7 @@ function bodyBgAnimation() {
         start: 'top top',
         end: 'top top',
         animation: bodyAni,
-        markers: true,
+        //markers: true,
         //scrub: true,
         //enter leave enterback leaveback
         toggleActions: 'play none none reverse',
@@ -140,37 +139,49 @@ function bodyBgAnimation() {
 }
 
 function introAnimation() {
-    const intro = gsap
-        .timeline()
-        .set('.intro_text p span', {
-            yPercent: 100,
-        })
-        .set(
-            '.intro_img figure',
-            {
-                opacity: 0,
-                xPercent: 10,
-            },
-            0
-        )
+    const introForward = gsap
+        .timeline({ paused: true })
         .to('.intro_text p span', {
             yPercent: 0,
             stagger: {
-                //amount: 1,
                 each: 0.1,
             },
         })
         .to('.intro_img figure', {
             opacity: 1,
             xPercent: 0,
+            ease: 'back(3)',
         });
+
+    const introReverse = gsap
+        .timeline({ paused: true })
+        .to('.intro_text p span', {
+            xPercent: -100,
+            stagger: {
+                each: 0.1,
+            },
+        })
+        .to(
+            '.intro_img figure',
+            {
+                opacity: 0,
+                xPercent: 10,
+            },
+            '<'
+        );
+
+    gsap.set('.intro_text p span', { yPercent: 100 });
+    gsap.set('.intro_img figure', { opacity: 0, xPercent: 10 });
 
     ScrollTrigger.create({
         trigger: '.intro',
-        start: 'top center',
-        end: '30% center',
-        animation: intro,
-        //markers: true,
+        start: 'top center', // 요소의 상단이 뷰포트의 하단에 도달할 때 시작
+        end: '80% center', // 요소의 하단이 뷰포트의 상단에 도달할 때 끝
+        onEnter: () => introForward.play(),
+        onLeave: () => introReverse.play(),
+        onEnterBack: () => introReverse.reverse(),
+        onLeaveBack: () => introForward.reverse(),
+        markers: true,
     });
 }
 
