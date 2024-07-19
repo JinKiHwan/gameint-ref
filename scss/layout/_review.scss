@@ -47,14 +47,13 @@
     }
 
     &_comments {
-        width: 100%;
+        width: 70%;
         min-height: 50vh;
         display: flex;
         gap: 2vw;
         flex-direction: column;
         align-items: flex-start;
         position: relative;
-        background: #26355d;
 
         .comment {
             display: flex;
