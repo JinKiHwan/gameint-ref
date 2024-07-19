@@ -9,7 +9,7 @@
     overflow: hidden;
     position: relative;
 
-    border-bottom: 1px solid #f00;
+    //border-bottom: 1px solid #f00;
 
     &_inner {
         width: 90%;
@@ -30,7 +30,7 @@
 
         p {
             overflow: hidden;
-            margin: 1vw 0;
+            padding: 1vw 2vw;
 
             span {
                 display: block;

@@ -1,3 +1,9 @@
+const scrollText = document.querySelector('.scroll_text .text p');
+scrollText.innerHTML = scrollText.innerText
+    .split('')
+    .map((char, i) => `<span style="transform:rotate(${i * 7.5}deg">${char}</span>`)
+    .join('');
+
 const theme = {
     primary: '#ecceae',
     secondary: '#26355d',
@@ -58,7 +64,7 @@ function mainBgAnimation() {
 }
 
 function scrollAnimation() {
-    const scrollAni = gsap.to('.scroll_wrap', {
+    const scrollAni = gsap.to('.scroll_text', {
         rotate: 360,
         repeat: -1,
         duration: 20,
@@ -156,7 +162,9 @@ function introAnimation() {
     const introReverse = gsap
         .timeline({ paused: true })
         .to('.intro_text p span', {
-            xPercent: -100,
+            filter: 'blur(8px)',
+            opacity: 0,
+            scale: 1.1,
             stagger: {
                 each: 0.1,
             },
@@ -181,7 +189,115 @@ function introAnimation() {
         onLeave: () => introReverse.play(),
         onEnterBack: () => introReverse.reverse(),
         onLeaveBack: () => introForward.reverse(),
+        //markers: true,
+    });
+}
+
+function bookWrapAnimation() {
+    const books = gsap.utils.toArray('.book_wrap li');
+
+    books.forEach((book, index) => {
+        console.log(index);
+        gsap.set(book, {
+            rotate: 12 * index,
+            position: 'absolute',
+            transformOrigin: 'center 100vw',
+        });
+    });
+
+    ScrollTrigger.create({
+        trigger: '.review',
+        start: 'top center',
+        end: 'bottom top',
+        ease: 'none',
+        animation: gsap.to('.book_wrap', {
+            rotate: -90,
+            transformOrigin: 'center center',
+        }),
+        scrub: 2,
+        onEnter: () => {
+            gsap.to('.book_wrap li', {
+                boxShadow: '0 5px 10px rgba(255, 255, 255, 0.2)',
+            });
+            mode = 'dark';
+            changeTheme(mode);
+        },
+        onLeaveBack: () => {
+            gsap.to('.book_wrap li', {
+                boxShadow: '0 5px 10px rgba(0, 0, 0, 0.5)',
+            });
+            mode = 'white';
+
+            changeTheme(mode);
+        },
+    });
+}
+
+function reviewAnimation() {
+    const commentsLeft = gsap.utils.toArray('.review_comments .comment.left');
+    const commentsRight = gsap.utils.toArray('.review_comments .comment.right');
+
+    const tl = gsap.timeline();
+
+    // 모든 댓글을 초기 상태로 설정
+    tl.set([...commentsLeft, ...commentsRight], {
+        y: 30,
+        opacity: 0,
+        filter: 'blur(5px)',
+    });
+
+    // 댓글 수 중 더 많은 쪽을 기준으로 루프
+    const maxComments = Math.max(commentsLeft.length, commentsRight.length);
+
+    for (let i = 0; i < maxComments; i++) {
+        // 왼쪽 댓글 애니메이션
+        if (i < commentsLeft.length) {
+            tl.to(commentsLeft[i], {
+                y: 0,
+                opacity: 1,
+                filter: 'blur(0)',
+                duration: 0.5,
+            }).to(
+                commentsLeft[i],
+                {
+                    yPercent: -100,
+                    opacity: 0,
+                    filter: 'blur(5px)',
+                    duration: 0.5,
+                },
+                '+=1'
+            ); // 1초 동안 표시
+        }
+
+        // 오른쪽 댓글 애니메이션
+        if (i < commentsRight.length) {
+            tl.to(commentsRight[i], {
+                y: 0,
+                opacity: 1,
+                filter: 'blur(0)',
+                duration: 0.5,
+            }).to(
+                commentsRight[i],
+                {
+                    yPercent: -100,
+                    opacity: 0,
+                    filter: 'blur(5px)',
+                    duration: 0.5,
+                },
+                '+=1'
+            ); // 1초 동안 표시
+        }
+    }
+
+    ScrollTrigger.create({
+        trigger: '.review_comments',
+        start: 'top center',
+        end: '+=10000',
+        animation: tl,
+        pin: true,
+        pinSpacing: true,
         markers: true,
+        scrub: 1,
     });
 }
 
@@ -190,4 +306,7 @@ bodyBgAnimation();
 mainBgAnimation();
 scrollAnimation();
 introAnimation();
+bookWrapAnimation();
+reviewAnimation();
+
 markers();

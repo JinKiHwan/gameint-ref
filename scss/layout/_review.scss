@@ -1,43 +1,163 @@
 @use '../helpers/' as *;
 
 .review {
+    margin-top: 5vw;
+    position: relative;
+    overflow: hidden;
     &_inner {
         width: 100%;
+        margin: 0 auto;
         height: 100%;
         display: flex;
         justify-content: center;
+        padding-top: 45vw;
+    }
+
+    .books {
+        position: absolute;
+        left: 50%;
+        top: 3vw;
+        transform: translateX(-50%);
+        z-index: -1;
     }
 
     .book_wrap {
         position: relative;
         display: flex;
         justify-content: center;
-        width: 100%;
+        width: 200vw;
         aspect-ratio: 1/1;
-        border: 1px solid #f00;
-        transition: transform 3s;
-
-        &:hover {
-            transform: rotate(180deg);
-        }
+        z-index: 0;
 
         li {
-            width: 25%;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            width: 15vw;
+            aspect-ratio: 23/32;
+            border-radius: 100px;
+            overflow: hidden;
+            transition: all 0.3s;
+
             img {
                 width: 100%;
             }
 
-            &:nth-child(1) {
-                left: auto;
-                transform: translateX(0);
-                right: 0;
+            &:hover {
+                border-radius: 0;
+            }
+        }
+    }
 
-                img {
-                    transform: rotate(90deg);
-                    transform-origin: center bottom;
+    &_comments {
+        width: 100%;
+        min-height: 50vh;
+        display: flex;
+        gap: 2vw;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        background: #26355d;
+
+        .comment {
+            display: flex;
+            align-items: flex-end;
+            gap: 1vw;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+
+            .profile {
+                width: 5vw;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                background: #eee;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &.chang {
+                    background: url('/assets/images/profile/changhoon.webp') no-repeat center center/cover;
+                }
+                &.kim {
+                    background: url('/assets/images/profile/hyojong.webp') no-repeat center center/cover;
+                }
+                &.kim2 {
+                    background: url('/assets/images/profile/kihyun.webp') no-repeat center center/cover;
+                }
+                &.an {
+                    background: url('/assets/images/profile/seungpil.webp') no-repeat center center/cover;
+                }
+                &.woo {
+                    background: url('/assets/images/profile/hyunjin.webp') no-repeat center center/cover;
+                }
+                &.lee {
+                    background: url('/assets/images/profile/jiyoung.webp') no-repeat center center/cover;
+                }
+                &.choi {
+                    background: url('/assets/images/profile/yousoon.webp') no-repeat center center/cover;
+                }
+                &.jin {
+                    background: url('/assets/images/profile/kihwan.webp') no-repeat center center/cover;
+                }
+                &.you {
+                    background: url('/assets/images/profile/kyungkuen.webp') no-repeat center center/cover;
+                }
+                &.back {
+                    background: url('/assets/images/profile/jaehyun.webp') no-repeat center center/cover;
+                }
+                &.back2 {
+                    background: url('/assets/images/profile/seunghue.webp') no-repeat center center/cover;
+                }
+                &.mang {
+                    background: url('/assets/images/profile/mang.webp') no-repeat center center/cover;
+                }
+            }
+
+            .comment_list {
+                background: #1d1d22;
+                padding: 1vw 2vw;
+                border-radius: 15px;
+                border-bottom-left-radius: 0;
+                position: relative;
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    //background: #1d1d22;
+                    position: absolute;
+                    left: -0.9vw;
+                    bottom: 0;
+                    border-right: 0.5vw solid #1d1d1d;
+                    border-bottom: 0.5vw solid #1d1d1d;
+                    border-top: 0.5vw solid transparent;
+                    border-left: 0.5vw solid transparent;
+                }
+
+                p {
+                    color: #fff;
+                    line-height: 1.5;
+                    font-size: 1vw;
+                }
+            }
+
+            &.right {
+                margin-left: auto;
+                flex-direction: row-reverse;
+                left: auto;
+                right: 0;
+                .comment_list {
+                    border-bottom-left-radius: 15px;
+                    border-bottom-right-radius: 0;
+                    background-color: #723cd4;
+
+                    &::before {
+                        left: auto;
+                        right: -0.9vw;
+                        border-right: 0.5vw solid transparent;
+                        border-bottom: 0.5vw solid #723cd4;
+                        border-top: 0.5vw solid transparent;
+                        border-left: 0.5vw solid #723cd4;
+                    }
                 }
             }
         }
