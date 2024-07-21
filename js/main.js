@@ -197,7 +197,7 @@ function bookWrapAnimation() {
     const books = gsap.utils.toArray('.book_wrap li');
 
     books.forEach((book, index) => {
-        console.log(index);
+        //console.log(index);
         gsap.set(book, {
             rotate: 12 * index,
             position: 'absolute',

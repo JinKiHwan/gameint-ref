@@ -63,6 +63,7 @@
             left: 0;
             top: 0;
             opacity: 0;
+            width: 100%;
 
             .profile {
                 width: 5vw;
@@ -112,11 +113,13 @@
             }
 
             .comment_list {
+                flex-grow: 1;
                 background: #1d1d22;
                 padding: 1vw 2vw;
                 border-radius: 15px;
                 border-bottom-left-radius: 0;
                 position: relative;
+                width: 100%;
                 &::before {
                     content: '';
                     display: block;
@@ -135,7 +138,8 @@
                 p {
                     color: #fff;
                     line-height: 1.5;
-                    font-size: 1vw;
+                    font-size: 18px;
+                    width: 100%;
                 }
             }
 
