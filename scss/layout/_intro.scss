@@ -31,6 +31,7 @@
         p {
             overflow: hidden;
             padding: 1vw 2vw;
+            font-family: 'SF_HambakSnow';
 
             span {
                 display: block;
@@ -40,7 +41,10 @@
     }
     &_img {
         flex-grow: 1;
+
+        width: 50%;
         img {
+            //box-shadow: 1px 5px 10px rgba($color: #000000, $alpha: 0.3);
             width: 100%;
         }
     }

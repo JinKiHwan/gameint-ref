@@ -4,13 +4,55 @@
     margin-top: 5vw;
     position: relative;
     overflow: hidden;
+
+    &_tit {
+        text-align: center;
+
+        h2 {
+            font-size: 3vw;
+            font-weight: 400;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            color: #eee;
+            margin-bottom: 1.5vw;
+
+            span {
+                //font-weight: 00;
+                color: #ecceae;
+                display: inline-block;
+                position: relative;
+                z-index: 0;
+
+                &::before {
+                    content: '';
+                    width: 105%;
+                    aspect-ratio: 10/3;
+                    z-index: -1;
+                    display: block;
+                    border: 2px solid #ecceae;
+                    border-radius: 50%;
+                    transform: skew(-40deg) rotate(-5deg) translate(-50%, -50%);
+                    position: absolute;
+                    left: 40%;
+                    top: 35%;
+                }
+            }
+        }
+
+        p {
+            color: #dfdfdf;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+    }
+
     &_inner {
         width: 100%;
         margin: 0 auto;
         height: 100%;
         display: flex;
         justify-content: center;
-        padding-top: 45vw;
+        padding-top: 35vw;
+        position: relative;
     }
 
     .books {
@@ -56,14 +98,32 @@
         position: relative;
 
         .comment {
-            display: flex;
-            align-items: flex-end;
-            gap: 1vw;
             position: absolute;
             left: 0;
             top: 0;
             opacity: 0;
-            width: 100%;
+            max-width: 60vw;
+
+            .comment_wrap {
+                display: flex;
+                align-items: flex-end;
+                gap: 1vw;
+                position: relative;
+                z-index: 0;
+
+                figure {
+                    max-width: 15vw;
+                    max-height: 410px;
+                    z-index: -1;
+                    box-shadow: 0 5px 15px rgba($color: #000, $alpha: 0.5);
+                    pointer-events: none;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
 
             .profile {
                 width: 5vw;
@@ -113,13 +173,14 @@
             }
 
             .comment_list {
-                flex-grow: 1;
+                //flex-grow: 1;
                 background: #1d1d22;
                 padding: 1vw 2vw;
                 border-radius: 15px;
                 border-bottom-left-radius: 0;
                 position: relative;
-                width: 100%;
+                z-index: 0;
+                width: 70%;
                 &::before {
                     content: '';
                     display: block;
@@ -140,14 +201,19 @@
                     line-height: 1.5;
                     font-size: 18px;
                     width: 100%;
+                    z-index: 1;
                 }
             }
 
             &.right {
                 margin-left: auto;
-                flex-direction: row-reverse;
                 left: auto;
                 right: 0;
+
+                .comment_wrap {
+                    flex-direction: row-reverse;
+                }
+
                 .comment_list {
                     border-bottom-left-radius: 15px;
                     border-bottom-right-radius: 0;

@@ -4,6 +4,18 @@ scrollText.innerHTML = scrollText.innerText
     .map((char, i) => `<span style="transform:rotate(${i * 7.5}deg">${char}</span>`)
     .join('');
 
+// const introText = gsap.utils.toArray('.intro_text p span');
+
+// //console.log(introText);
+// introText.forEach((text, index) => {
+//     console.log(text.innerHTML);
+
+//     text.innerHTML = text.innerText
+//         .split('')
+//         .map((char, i) => `<i>${char}</i>`)
+//         .join('');
+// });
+
 const theme = {
     primary: '#ecceae',
     secondary: '#26355d',
@@ -134,12 +146,12 @@ function bodyBgAnimation() {
         onEnter: () => {
             mode = 'white';
 
-            changeTheme(mode);
+            //changeTheme(mode);
         },
         onEnterBack: () => {
             mode = 'dark';
 
-            changeTheme(mode);
+            //changeTheme(mode);
         },
     });
 }
@@ -185,10 +197,11 @@ function introAnimation() {
         trigger: '.intro',
         start: 'top center', // 요소의 상단이 뷰포트의 하단에 도달할 때 시작
         end: '80% center', // 요소의 하단이 뷰포트의 상단에 도달할 때 끝
-        onEnter: () => introForward.play(),
-        onLeave: () => introReverse.play(),
-        onEnterBack: () => introReverse.reverse(),
-        onLeaveBack: () => introForward.reverse(),
+        animation: introForward,
+        // onEnter: () => introForward.play(),
+        // onLeave: () => introReverse.play(),
+        // onEnterBack: () => introReverse.reverse(),
+        // onLeaveBack: () => introForward.reverse(),
         //markers: true,
     });
 }
@@ -220,7 +233,7 @@ function bookWrapAnimation() {
                 boxShadow: '0 5px 10px rgba(255, 255, 255, 0.2)',
             });
             mode = 'dark';
-            changeTheme(mode);
+            //changeTheme(mode);
         },
         onLeaveBack: () => {
             gsap.to('.book_wrap li', {
@@ -228,7 +241,7 @@ function bookWrapAnimation() {
             });
             mode = 'white';
 
-            changeTheme(mode);
+            //changeTheme(mode);
         },
     });
 }
@@ -236,6 +249,8 @@ function bookWrapAnimation() {
 function reviewAnimation() {
     const commentsLeft = gsap.utils.toArray('.review_comments .comment.left');
     const commentsRight = gsap.utils.toArray('.review_comments .comment.right');
+    const commentsLeftFigure = gsap.utils.toArray('.comment.left figure');
+    const commentsRightFigure = gsap.utils.toArray('.comment.right figure');
 
     const tl = gsap.timeline();
 
@@ -244,7 +259,16 @@ function reviewAnimation() {
         y: 30,
         opacity: 0,
         filter: 'blur(5px)',
-    });
+        PointerEvent: 'none',
+    })
+        .set(commentsLeftFigure, {
+            x: 100,
+            opacity: 0,
+        })
+        .set(commentsRightFigure, {
+            x: -100,
+            opacity: 0,
+        });
 
     // 댓글 수 중 더 많은 쪽을 기준으로 루프
     const maxComments = Math.max(commentsLeft.length, commentsRight.length);
@@ -257,16 +281,25 @@ function reviewAnimation() {
                 opacity: 1,
                 filter: 'blur(0)',
                 duration: 0.5,
-            }).to(
-                commentsLeft[i],
-                {
-                    yPercent: -100,
-                    opacity: 0,
-                    filter: 'blur(5px)',
-                    duration: 0.5,
-                },
-                '+=1'
-            ); // 1초 동안 표시
+            })
+                .to(
+                    commentsLeft[i],
+                    {
+                        yPercent: -100,
+                        opacity: 0,
+                        filter: 'blur(5px)',
+                        duration: 0.5,
+                    },
+                    '+=1'
+                )
+                .to(
+                    commentsLeftFigure[i],
+                    {
+                        x: 0,
+                        opacity: 1,
+                    },
+                    '-=1'
+                );
         }
 
         // 오른쪽 댓글 애니메이션
@@ -276,33 +309,42 @@ function reviewAnimation() {
                 opacity: 1,
                 filter: 'blur(0)',
                 duration: 0.5,
-            }).to(
-                commentsRight[i],
-                {
-                    yPercent: -100,
-                    opacity: 0,
-                    filter: 'blur(5px)',
-                    duration: 0.5,
-                },
-                '+=1'
-            ); // 1초 동안 표시
+            })
+                .to(
+                    commentsRight[i],
+                    {
+                        yPercent: -100,
+                        opacity: 0,
+                        filter: 'blur(5px)',
+                        duration: 0.5,
+                    },
+                    '+=1'
+                ) // 1초 동안 표시
+                .to(
+                    commentsRightFigure[i],
+                    {
+                        x: 0,
+                        opacity: 1,
+                    },
+                    '-=1'
+                );
         }
     }
 
     ScrollTrigger.create({
         trigger: '.review_comments',
-        start: 'top center',
+        start: 'center center',
         end: '+=10000',
         animation: tl,
         pin: true,
         pinSpacing: true,
-        markers: true,
+        //markers: true,
         scrub: 1,
     });
 }
 
 headerFixed();
-bodyBgAnimation();
+//bodyBgAnimation();
 mainBgAnimation();
 scrollAnimation();
 introAnimation();
