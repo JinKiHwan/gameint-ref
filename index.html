@@ -7,12 +7,14 @@
         <title>GAMEINT</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
         <link rel="stylesheet" href="./css/style.min.css" />
-        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
-        <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollToPlugin.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.7.5/smooth-scrollbar.js"></script>
-        <script src="./js/settings.js" defer></script>
-        <script src="./js/main.js" defer></script>
+        <script defer src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=5426"></script>
+        <script defer src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollToPlugin.min.js"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.7.5/smooth-scrollbar.js"></script>
+        <script defer src="./js/settings.js" defer></script>
+        <script defer src="./js/markers.js"></script>
+
+        <script defer src="./js/main.js" defer></script>
     </head>
     <body>
         <div id="container">
@@ -135,12 +137,12 @@
                 </div>
             </section>
 
-            <section class="review">
-                <div class="review_tit">
+            <section class="recommend">
+                <div class="recommend_tit">
                     <h2><span>GameInt</span> is not limited by genre or trends.</h2>
                     <p>우리는 읽고 나누고 싶은 책을 자유롭게 추천하고 공유합니다.</p>
                 </div>
-                <div class="review_inner">
+                <div class="recommend_inner">
                     <div class="books">
                         <ul class="book_wrap">
                             <li>
@@ -236,7 +238,7 @@
                         </ul>
                     </div>
 
-                    <div class="review_comments">
+                    <div class="recommend_comments">
                         <div class="comment left">
                             <div class="comment_wrap">
                                 <div class="profile jin"></div>
@@ -334,7 +336,100 @@
                     </div>
                 </div>
             </section>
+
+            <section class="review">
+                <div class="review_inner">
+                    <div class="review_tit">
+                        <h2>Various reviews</h2>
+                        <p>개성 넘치는 각양각색의 리뷰</p>
+                    </div>
+
+                    <ul class="review_wrap">
+                        <li data-book="book01">
+                            <p>
+                                성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까성숙하지 못한 선택이 죄가 될 수 있다는
+                                부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까
+                            </p>
+                        </li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book03"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book04"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book05"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book06"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book07"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book08"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book09"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book10"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                    </ul>
+                    <ul class="review_wrap">
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                    </ul>
+                    <ul class="review_wrap">
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                        <li data-book="book01"><p>성숙하지 못한 선택이 죄가 될 수 있다는 부분이 흥미로웠는데, 아마 눈 감는 순간 후회할 수 있는 부분이라 그런게 아닐까</p></li>
+                        <li data-book="book02"><p>'자신의 흠을 인정하고 받아드리는 사람이기에 이토록 대중들의 사랑을 받을 수 있었지 않았나' 라는 생각을 해보았다. 특히 '실망했을 때가 가장 서로를 알아가기 좋은 때'라는 구절이 와닿았다.</p></li>
+                    </ul>
+
+                    <figure class="book_img">
+                        <img src="" alt="" />
+                    </figure>
+                </div>
+            </section>
+
+            <section class="activity" hidden>
+                <div class="activity_inner">
+                    <div class="activity_wrap">
+                        <div class="activity_tit">한국인이 가장 좋아하는 프랑스 작가 베르나르 베르베르는 신, 개미 등등 으로 인해 정말 유명한 작가인데요 이번에 저희 동호회에서는 베르나르의 심판이라는 책을 읽고 생각을 나누는 시간을 가지게 되었습니다.</div>
+                        <ul class="activity_month">
+                            <li>
+                                <dl class="activity_month-date">
+                                    <dt>2023</dt>
+                                    <dd>12</dd>
+                                </dl>
+
+                                <dl class="activity_month-book">
+                                    <dt>심판 <span>베르나르 베르베르</span></dt>
+                                    <dd>사후 세계의 법정에서 인간의 삶과 행동을 재판의 이야기</dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </div>
-        <script src="./js/markers.js"></script>
     </body>
 </html>

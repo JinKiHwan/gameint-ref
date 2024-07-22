@@ -219,7 +219,7 @@ function bookWrapAnimation() {
     });
 
     ScrollTrigger.create({
-        trigger: '.review',
+        trigger: '.recommend',
         start: 'top center',
         end: 'bottom top',
         ease: 'none',
@@ -246,9 +246,9 @@ function bookWrapAnimation() {
     });
 }
 
-function reviewAnimation() {
-    const commentsLeft = gsap.utils.toArray('.review_comments .comment.left');
-    const commentsRight = gsap.utils.toArray('.review_comments .comment.right');
+function recommendAnimation() {
+    const commentsLeft = gsap.utils.toArray('.recommend_comments .comment.left');
+    const commentsRight = gsap.utils.toArray('.recommend_comments .comment.right');
     const commentsLeftFigure = gsap.utils.toArray('.comment.left figure');
     const commentsRightFigure = gsap.utils.toArray('.comment.right figure');
 
@@ -332,7 +332,7 @@ function reviewAnimation() {
     }
 
     ScrollTrigger.create({
-        trigger: '.review_comments',
+        trigger: '.recommend_comments',
         start: 'center center',
         end: '+=10000',
         animation: tl,
@@ -343,12 +343,67 @@ function reviewAnimation() {
     });
 }
 
+function reviewAnimation() {
+    const reviewWraps = gsap.utils.toArray('.review_wrap');
+
+    // 기본 타임스케일 저장
+    const normalTimeScale = 1;
+    // 느린 타임스케일 설정 (예: 0.2는 정상 속도의 20%)
+    const slowTimeScale = 0.5;
+
+    reviewWraps.forEach((review, index) => {
+        // 각 review에 대한 개별 타임라인 생성
+        const tl = gsap
+            .timeline({
+                scrollTrigger: {
+                    trigger: '.review',
+                    markers: true,
+                    start: 'top center',
+                    end: 'center center',
+                },
+            })
+            .to(review, {
+                xPercent: index % 2 === 0 ? -300 : 300, // 짝수 인덱스는 왼쪽, 홀수 인덱스는 오른쪽으로 이동
+                duration: 150,
+                repeat: -1,
+                ease: 'linear',
+            });
+
+        review.addEventListener('mouseenter', (e) => {
+            gsap.to(tl, { timeScale: slowTimeScale, duration: 0.5 });
+        });
+
+        review.addEventListener('mouseleave', () => {
+            gsap.to(tl, { timeScale: normalTimeScale, duration: 0.5 });
+        });
+    });
+}
+
+function reviewBg() {
+    const reviewBooks = gsap.utils.toArray('.review_wrap li');
+    const bookImgElem = document.querySelector('.book_img img');
+
+    reviewBooks.forEach((reviewBook, index) => {
+        reviewBook.addEventListener('mouseenter', function () {
+            let bookNum = reviewBook.dataset.book;
+            gsap.from(bookImgElem, {
+                opacity: 0,
+            });
+            bookImgElem.src = `/assets/images/book/${bookNum}.webp`;
+        });
+        reviewBook.addEventListener('mouseleave', function () {
+            bookImgElem.src = '';
+        });
+    });
+}
+
 headerFixed();
 //bodyBgAnimation();
 mainBgAnimation();
 scrollAnimation();
 introAnimation();
 bookWrapAnimation();
+recommendAnimation();
 reviewAnimation();
-
+reviewBg();
 markers();

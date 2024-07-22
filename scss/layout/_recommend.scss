@@ -1,0 +1,238 @@
+@use '../helpers/' as *;
+
+.recommend {
+    margin-top: 5vw;
+    position: relative;
+    overflow: hidden;
+
+    &_tit {
+        text-align: center;
+
+        h2 {
+            font-size: 3vw;
+            font-weight: 400;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1px;
+            color: #eee;
+            margin-bottom: 1.5vw;
+
+            span {
+                //font-weight: 00;
+                color: #a0daa8;
+                display: inline-block;
+                position: relative;
+                z-index: 0;
+
+                &::before {
+                    content: '';
+                    width: 105%;
+                    aspect-ratio: 10/3;
+                    z-index: -1;
+                    display: block;
+                    border: 2px solid #a0daa8;
+                    border-radius: 50%;
+                    transform: skew(-40deg) rotate(-5deg) translate(-50%, -50%);
+                    position: absolute;
+                    left: 40%;
+                    top: 35%;
+                }
+            }
+        }
+
+        p {
+            color: #dfdfdf;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+    }
+
+    &_inner {
+        width: 100%;
+        margin: 0 auto;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        padding-top: 35vw;
+        position: relative;
+
+        .pin-spacer {
+            z-index: 1 !important;
+        }
+    }
+
+    .books {
+        position: absolute;
+        left: 50%;
+        top: 3vw;
+        transform: translateX(-50%);
+        z-index: -1;
+    }
+
+    .book_wrap {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 200vw;
+        aspect-ratio: 1/1;
+        z-index: 0;
+
+        li {
+            width: 15vw;
+            aspect-ratio: 23/32;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+
+            img {
+                width: 100%;
+            }
+
+            &:hover {
+                border-radius: 0;
+            }
+        }
+    }
+
+    &_comments {
+        width: 70%;
+        min-height: 50vh;
+        display: flex;
+        gap: 2vw;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+
+        .comment {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            max-width: 60vw;
+
+            .comment_wrap {
+                display: flex;
+                align-items: flex-end;
+                gap: 1vw;
+                position: relative;
+                z-index: 0;
+
+                figure {
+                    max-width: 15vw;
+                    max-height: 410px;
+                    z-index: -1;
+                    box-shadow: 0 5px 15px rgba($color: #000, $alpha: 0.5);
+                    pointer-events: none;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            .profile {
+                width: 5vw;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                background: #eee;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &.chang {
+                    background: url('/assets/images/profile/changhoon.webp') no-repeat center center/cover;
+                }
+                &.kim {
+                    background: url('/assets/images/profile/hyojong.webp') no-repeat center center/cover;
+                }
+                &.kim2 {
+                    background: url('/assets/images/profile/kihyun.webp') no-repeat center center/cover;
+                }
+                &.an {
+                    background: url('/assets/images/profile/seungpil.webp') no-repeat center center/cover;
+                }
+                &.woo {
+                    background: url('/assets/images/profile/hyunjin.webp') no-repeat center center/cover;
+                }
+                &.lee {
+                    background: url('/assets/images/profile/jiyoung.webp') no-repeat center center/cover;
+                }
+                &.choi {
+                    background: url('/assets/images/profile/yousoon.webp') no-repeat center center/cover;
+                }
+                &.jin {
+                    background: url('/assets/images/profile/kihwan.webp') no-repeat center center/cover;
+                }
+                &.you {
+                    background: url('/assets/images/profile/kyungkuen.webp') no-repeat center center/cover;
+                }
+                &.back {
+                    background: url('/assets/images/profile/jaehyun.webp') no-repeat center center/cover;
+                }
+                &.back2 {
+                    background: url('/assets/images/profile/seunghue.webp') no-repeat center center/cover;
+                }
+                &.mang {
+                    background: url('/assets/images/profile/mang.webp') no-repeat center center/cover;
+                }
+            }
+
+            .comment_list {
+                //flex-grow: 1;
+                background: #1d1d22;
+                padding: 1vw 2vw;
+                border-radius: 15px;
+                border-bottom-left-radius: 0;
+                position: relative;
+                z-index: 0;
+                width: 70%;
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    //background: #1d1d22;
+                    position: absolute;
+                    left: -0.9vw;
+                    bottom: 0;
+                    border-right: 0.5vw solid #1d1d1d;
+                    border-bottom: 0.5vw solid #1d1d1d;
+                    border-top: 0.5vw solid transparent;
+                    border-left: 0.5vw solid transparent;
+                }
+
+                p {
+                    color: #fff;
+                    line-height: 1.5;
+                    font-size: 18px;
+                    width: 100%;
+                    z-index: 1;
+                }
+            }
+
+            &.right {
+                margin-left: auto;
+                left: auto;
+                right: 0;
+
+                .comment_wrap {
+                    flex-direction: row-reverse;
+                }
+
+                .comment_list {
+                    border-bottom-left-radius: 15px;
+                    border-bottom-right-radius: 0;
+                    background-color: #723cd4;
+
+                    &::before {
+                        left: auto;
+                        right: -0.9vw;
+                        border-right: 0.5vw solid transparent;
+                        border-bottom: 0.5vw solid #723cd4;
+                        border-top: 0.5vw solid transparent;
+                        border-left: 0.5vw solid #723cd4;
+                    }
+                }
+            }
+        }
+    }
+}
