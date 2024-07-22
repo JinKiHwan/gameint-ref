@@ -32,10 +32,10 @@
             overflow: hidden;
             padding: 1vw 2vw;
             font-family: 'SF_HambakSnow';
-            width: 45%;
+            width: 100%;
 
             span {
-                display: block;
+                display: flex;
                 //transform: translateY(100%);
             }
         }
