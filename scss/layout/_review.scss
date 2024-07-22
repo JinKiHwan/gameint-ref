@@ -53,6 +53,10 @@
         justify-content: center;
         padding-top: 35vw;
         position: relative;
+
+        .pin-spacer {
+            z-index: 1 !important;
+        }
     }
 
     .books {

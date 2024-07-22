@@ -4,17 +4,17 @@ scrollText.innerHTML = scrollText.innerText
     .map((char, i) => `<span style="transform:rotate(${i * 7.5}deg">${char}</span>`)
     .join('');
 
-// const introText = gsap.utils.toArray('.intro_text p span');
+const introText = gsap.utils.toArray('.intro_text p span');
 
-// //console.log(introText);
-// introText.forEach((text, index) => {
-//     console.log(text.innerHTML);
+//console.log(introText);
+introText.forEach((text, index) => {
+    console.log(text.innerHTML);
 
-//     text.innerHTML = text.innerText
-//         .split('')
-//         .map((char, i) => `<i>${char}</i>`)
-//         .join('');
-// });
+    text.innerHTML = text.innerText
+        .split('')
+        .map((char, i) => `<i>${char}</i>`)
+        .join('');
+});
 
 const theme = {
     primary: '#ecceae',
