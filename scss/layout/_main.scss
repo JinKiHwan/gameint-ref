@@ -1,7 +1,8 @@
 @use '../helpers/' as *;
 
 body {
-    background: #26355d;
+    // background: #26355d;
+    background: #363845;
 }
 section {
     min-height: 100vh;
@@ -27,7 +28,8 @@ section {
     -webkit-mask-position: 0 0;
 
     h2 {
-        color: #ecceae;
+        // color: #ecceae;
+        color: #a0daa8;
         font-size: 80px;
         font-family: 'HakgyoansimBareonbatangB';
 
@@ -104,7 +106,7 @@ section {
         height: 100%;
         z-index: -1;
         pointer-events: none;
-        opacity: 0.5;
+        opacity: 0.7;
         padding: 0 1vw;
         ul {
             display: flex;
@@ -131,7 +133,7 @@ section {
 
                     img {
                         filter: brightness(1);
-                        box-shadow: 0 5px 10px rgba($color: #eee, $alpha: 0.3);
+                        box-shadow: 0 5px 10px rgba($color: #222, $alpha: 0.3);
                         transition: filter 0.3s;
                         display: block;
                         &:hover {

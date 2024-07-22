@@ -3,74 +3,47 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Scrolling Cards</title>
+        <title>Document</title>
 
         <style>
-            body {
-                margin: 0;
-                padding: 0;
-                background-color: #1e3a8a;
-            }
+            .test {
+                width: 100vw;
+                height: 100vh;
+                .inner {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
 
-            .container {
-                height: 300vh;
-            }
+                    .inner_text {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
 
-            .cards-wrapper {
-                display: flex;
-                position: fixed;
-                top: 50%;
-                left: 0;
-                transform: translateY(-50%);
-                padding: 0 20px;
-            }
+                    p {
+                        color: #fff;
+                        padding: 0 15px;
+                        margin: 0;
+                        font-size: 80px;
 
-            .card {
-                flex: 0 0 auto;
-                width: 200px;
-                height: 250px;
-                margin: 0 20px;
-                background-color: white;
-                border-radius: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 18px;
-                color: #1e3a8a;
+                        span {
+                            display: inline;
+                            background: green;
+                        }
+                    }
+                }
             }
         </style>
-
-        <!-- GSAP 및 플러그인 로딩 순서 변경 -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
     </head>
     <body>
-        <div class="container">
-            <div class="cards-wrapper">
-                <div class="card">GS칼텍스</div>
-                <div class="card">서울대학</div>
-                <div class="card">신한금융플러스</div>
-                <div class="card">OUR CLIENTS</div>
-                <div class="card">BENTLEY</div>
-                <div class="card">ACC</div>
+        <section class="test">
+            <div class="inner">
+                <div class="inner_text">
+                    <p><span>Lorem, ipsum dolor sit amet consectetur</span></p>
+                </div>
             </div>
-        </div>
-
-        <script>
-            gsap.registerPlugin(ScrollTrigger);
-
-            gsap.to('.cards-wrapper', {
-                x: () => -(document.querySelector('.cards-wrapper').scrollWidth - window.innerWidth + 40),
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: '.container',
-                    start: 'top top',
-                    end: 'bottom bottom',
-                    scrub: 1,
-                    pin: true,
-                    anticipatePin: 1,
-                },
-            });
-        </script>
+        </section>
     </body>
 </html>
