@@ -57,16 +57,25 @@ function mainBgAnimation() {
     mainBook.forEach((elem) => {
         gsap.timeline()
             .set('.book div img', {
-                filter: 'blur(10px)',
+                xPercent: -1000,
+                yPercent: 1000,
+                rotateX: 90,
+                rotateY: 180,
             })
             .to('.book div img', {
-                filter: 'blur(0)',
+                xPercent: 0,
+                yPercent: 0,
+                duration: 1,
+                rotateX: 0,
+                rotateY: 0,
+                transformOrigin: 'center center',
                 stagger: {
                     amount: 1.5,
-                    from: 'random',
+                    from: 'edges',
                 },
             })
             .to('.book div', {
+                //delay: 5,
                 yPercent: gsap.utils.wrap([50, -80]),
                 duration: 100,
                 repeat: -1,

@@ -4,46 +4,45 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
-
         <style>
-            .test {
-                width: 100vw;
+            * {
+                margin: 0;
+            }
+            section {
+                width: 100%;
                 height: 100vh;
-                .inner {
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-
-                    .inner_text {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: flex-start;
-                    }
-
-                    p {
-                        color: #fff;
-                        padding: 0 15px;
-                        margin: 0;
-                        font-size: 80px;
-
-                        span {
-                            display: inline;
-                            background: green;
-                        }
-                    }
-                }
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #favDialog::backdrop {
+                background-color: rgba(0, 0, 0, 0.5);
             }
         </style>
     </head>
     <body>
-        <section class="test">
-            <div class="inner">
-                <div class="inner_text">
-                    <p><span>Lorem, ipsum dolor sit amet consectetur</span></p>
-                </div>
-            </div>
+        <section>
+            <form action="">
+                <button id="open">Show Modal!</button>
+
+                <input type="text" />
+                <button type="submit">aaa</button>
+            </form>
         </section>
+
+        <div id="favDialog">
+            <form method="dialog">
+                <p>The background shown outside of this dialog is a backdrop.</p>
+                <button id="confirmBtn">Close the dialog</button>
+            </form>
+        </div>
+
+        <script>
+            const showDialogBtn = document.getElementById('open');
+            const favDialog = document.getElementById('favDialog');
+            favDialog.requestFullscreen();
+
+            showDialogBtn.addEventListener('click', () => favDialog.showModal());
+        </script>
     </body>
 </html>

@@ -130,8 +130,11 @@ section {
                     flex-direction: column;
                     justify-content: center;
                     gap: 1vw;
+                    perspective: 1000px;
 
                     img {
+                        transform-style: preserve-3d;
+                        display: block;
                         filter: brightness(1);
                         box-shadow: 0 5px 10px rgba($color: #222, $alpha: 0.3);
                         transition: filter 0.3s;
