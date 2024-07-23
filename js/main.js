@@ -386,8 +386,9 @@ function reviewBg() {
     reviewBooks.forEach((reviewBook, index) => {
         reviewBook.addEventListener('mouseenter', function () {
             let bookNum = reviewBook.dataset.book;
-            const tl = gsap.timeline().set(bookImgElem, { opacity: 0 }).to(bookImgElem, {
+            const tl = gsap.timeline().set(bookImgElem, { opacity: 0, y: 30 }).to(bookImgElem, {
                 opacity: 1,
+                y: 0,
             });
             bookImgElem.src = `/assets/images/book/${bookNum}.webp`;
         });
