@@ -246,103 +246,6 @@ function bookWrapAnimation() {
     });
 }
 
-function recommendAnimation() {
-    const commentsLeft = gsap.utils.toArray('.recommend_comments .comment.left');
-    const commentsRight = gsap.utils.toArray('.recommend_comments .comment.right');
-    const commentsLeftFigure = gsap.utils.toArray('.comment.left figure');
-    const commentsRightFigure = gsap.utils.toArray('.comment.right figure');
-
-    const tl = gsap.timeline();
-
-    // 모든 댓글을 초기 상태로 설정
-    tl.set([...commentsLeft, ...commentsRight], {
-        y: 30,
-        opacity: 0,
-        filter: 'blur(5px)',
-        PointerEvent: 'none',
-    })
-        .set(commentsLeftFigure, {
-            x: 100,
-            opacity: 0,
-        })
-        .set(commentsRightFigure, {
-            x: -100,
-            opacity: 0,
-        });
-
-    // 댓글 수 중 더 많은 쪽을 기준으로 루프
-    const maxComments = Math.max(commentsLeft.length, commentsRight.length);
-
-    for (let i = 0; i < maxComments; i++) {
-        // 왼쪽 댓글 애니메이션
-        if (i < commentsLeft.length) {
-            tl.to(commentsLeft[i], {
-                y: 0,
-                opacity: 1,
-                filter: 'blur(0)',
-                duration: 0.5,
-            })
-                .to(
-                    commentsLeft[i],
-                    {
-                        yPercent: -100,
-                        opacity: 0,
-                        filter: 'blur(5px)',
-                        duration: 0.5,
-                    },
-                    '+=1'
-                )
-                .to(
-                    commentsLeftFigure[i],
-                    {
-                        x: 0,
-                        opacity: 1,
-                    },
-                    '-=1'
-                );
-        }
-
-        // 오른쪽 댓글 애니메이션
-        if (i < commentsRight.length) {
-            tl.to(commentsRight[i], {
-                y: 0,
-                opacity: 1,
-                filter: 'blur(0)',
-                duration: 0.5,
-            })
-                .to(
-                    commentsRight[i],
-                    {
-                        yPercent: -100,
-                        opacity: 0,
-                        filter: 'blur(5px)',
-                        duration: 0.5,
-                    },
-                    '+=1'
-                ) // 1초 동안 표시
-                .to(
-                    commentsRightFigure[i],
-                    {
-                        x: 0,
-                        opacity: 1,
-                    },
-                    '-=1'
-                );
-        }
-    }
-
-    ScrollTrigger.create({
-        trigger: '.recommend_comments',
-        start: 'center center',
-        end: '+=10000',
-        animation: tl,
-        pin: true,
-        pinSpacing: true,
-        //markers: true,
-        scrub: 1,
-    });
-}
-
 function reviewAnimation() {
     const reviewWraps = gsap.utils.toArray('.review_wrap');
 
@@ -357,7 +260,7 @@ function reviewAnimation() {
             .timeline({
                 scrollTrigger: {
                     trigger: '.review',
-                    markers: true,
+                    //markers: true,
                     start: 'top center',
                     end: 'center center',
                 },
@@ -404,7 +307,7 @@ mainBgAnimation();
 scrollAnimation();
 introAnimation();
 bookWrapAnimation();
-recommendAnimation();
+
 reviewAnimation();
 reviewBg();
 markers();

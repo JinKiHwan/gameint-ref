@@ -20,6 +20,22 @@
                         display: flex;
                         flex-direction: column;
                         align-items: flex-start;
+                        perspective: 1000px;
+
+                        .box {
+                            width: 500px;
+                            aspect-ratio: 1/1;
+                            border: 1px solid #f00;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            transform: rotateX(0) rotateY(75deg);
+
+                            p {
+                                color: #000;
+                            }
+                        }
                     }
 
                     p {
@@ -41,7 +57,9 @@
         <section class="test">
             <div class="inner">
                 <div class="inner_text">
-                    <p><span>Lorem, ipsum dolor sit amet consectetur</span></p>
+                    <div class="box">
+                        <p>test</p>
+                    </div>
                 </div>
             </div>
         </section>
