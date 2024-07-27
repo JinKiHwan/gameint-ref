@@ -210,28 +210,32 @@ function bookWrapAnimation() {
     const books = gsap.utils.toArray('.book_wrap li');
 
     books.forEach((book, index) => {
-        //console.log(index);
+        console.log(index);
         gsap.set(book, {
-            rotate: 12 * index,
+            rotate: 8 * index,
             position: 'absolute',
-            transformOrigin: 'center 100vw',
+            transformOrigin: 'center 150vw',
         });
     });
 
     ScrollTrigger.create({
         trigger: '.recommend',
         start: 'top center',
-        end: 'bottom top',
+        end: 'bottom center',
         ease: 'none',
         animation: gsap.to('.book_wrap', {
-            rotate: -90,
+            rotate: -35,
             transformOrigin: 'center center',
         }),
-        scrub: 2,
+        scrub: 1,
         onEnter: () => {
-            gsap.to('.book_wrap li', {
-                boxShadow: '0 5px 10px rgba(255, 255, 255, 0.2)',
-            });
+            // gsap.to('.book_wrap li', {
+            //     scale: 1.1,
+            //     stagger: {
+            //         amount: 0.3,
+            //     },
+            //     from: 'random',
+            // });
             mode = 'dark';
             //changeTheme(mode);
         },
@@ -301,13 +305,102 @@ function reviewBg() {
     });
 }
 
+function recommendMsgAnimation() {
+    const recMember = gsap.utils.toArray('.recommend_member ul li figure');
+    const recMsg = gsap.utils.toArray('.recommend_member ul li div p');
+
+    console.log(recMember, recMsg);
+
+    //멤버 세팅
+    gsap.set(recMember, {
+        opacity: 0,
+        y: 30,
+    });
+    //메세지 세팅
+    recMsg.forEach((msg, i) => {
+        gsap.set(msg, {
+            opacity: 0,
+            y: i < 6 ? -30 : 30,
+        });
+    });
+
+    const tl = gsap
+        .timeline()
+        .to(recMember, {
+            y: 0,
+            opacity: 1,
+            ease: 'back(3)',
+            stagger: {
+                each: 0.3,
+            },
+        })
+        .to(recMsg, {
+            y: 0,
+            opacity: 1,
+            ease: 'back(3)',
+            stagger: {
+                each: 0.5,
+                amount: 10,
+            },
+        })
+        .to(
+            recMember,
+            {
+                scale: 1.2,
+                boxShadow: '0 0 15px rgba(0,0,0,0.5)',
+                stagger: {
+                    each: 0.5,
+                    amount: 10,
+                },
+            },
+            '<'
+        )
+        .to(
+            recMsg,
+            {
+                delay: 0.5,
+                opacity: 0,
+                stagger: {
+                    amount: 10,
+                    each: 0.5,
+                },
+            },
+            '<'
+        )
+        .to(
+            recMember,
+            {
+                scale: 1,
+                boxShadow: 0,
+                stagger: {
+                    each: 0.5,
+                    amount: 10,
+                },
+            },
+            '<'
+        );
+
+    ScrollTrigger.create({
+        trigger: '.recommend_member',
+        start: 'top 40%',
+        end: '+=15000',
+        animation: tl,
+        pin: true,
+        pinSpacing: true,
+        markers: true,
+        scrub: true,
+        //enter leave enterback leaveback
+        //toggleActions:'none none none none'
+    });
+}
+
 headerFixed();
 //bodyBgAnimation();
 mainBgAnimation();
 scrollAnimation();
 introAnimation();
 bookWrapAnimation();
-
+recommendMsgAnimation();
 reviewAnimation();
 reviewBg();
 markers();
