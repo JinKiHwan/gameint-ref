@@ -1,7 +1,7 @@
 const scrollText = document.querySelector('.scroll_text .text p');
 scrollText.innerHTML = scrollText.innerText
     .split('')
-    .map((char, i) => `<span style="transform:rotate(${i * 7.5}deg">${char}</span>`)
+    .map((char, i) => `<span style="transform:rotate(${i * 6.9}deg">${char}</span>`)
     .join('');
 
 const introText = gsap.utils.toArray('.intro_text p span');

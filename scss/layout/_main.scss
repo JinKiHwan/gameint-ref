@@ -30,7 +30,7 @@ section {
     h2 {
         // color: #ecceae;
         //color: #a0daa8;
-        color: #03ffa2;
+        color: $c-main;
         font-size: 80px;
         font-family: 'HakgyoansimBareonbatangB';
 
@@ -40,7 +40,7 @@ section {
         color: #eee;
     }
     &_scroll {
-        width: 7.8vw;
+        width: 8vw;
         aspect-ratio: 1/1;
         position: relative;
 
@@ -62,7 +62,7 @@ section {
         .scroll_text {
             cursor: pointer;
             position: relative;
-            width: 7.8vw;
+            width: 8vw;
             aspect-ratio: 1/1;
             border-radius: 50%;
             display: flex;

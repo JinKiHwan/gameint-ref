@@ -18,7 +18,7 @@
 
             span {
                 //font-weight: 00;
-                color: #03ffa2;
+                color: $c-main;
                 display: inline-block;
                 position: relative;
                 z-index: 0;
@@ -29,7 +29,7 @@
                     aspect-ratio: 10/3;
                     z-index: -1;
                     display: block;
-                    border: 2px solid #03ffa2;
+                    border: 2px solid $c-main;
                     border-radius: 50%;
                     transform: skew(-40deg) rotate(-5deg) translate(-50%, -50%);
                     position: absolute;
@@ -139,10 +139,10 @@
                     //opacity: 0;
                     &.purple {
                         p {
-                            background: purple;
+                            background: #45936b;
 
                             &::after {
-                                border-top: 10px solid purple;
+                                border-top: 10px solid #45936b;
                                 border-left: 10px solid transparent;
                                 border-right: 10px solid transparent;
                                 width: 15px;
@@ -151,10 +151,10 @@
                     }
                     &.black {
                         p {
-                            background: black;
+                            background: #3e4861;
 
                             &::after {
-                                border-top: 10px solid black;
+                                border-top: 10px solid #3e4861;
                                 border-left: 10px solid transparent;
                                 border-right: 10px solid transparent;
                                 width: 15px;
@@ -166,7 +166,8 @@
                         white-space: nowrap;
                         line-height: 1.2;
                         color: #fff;
-                        padding: 10px;
+                        padding: 10px 15px;
+                        border-radius: 5px;
                     }
                 }
 
@@ -210,13 +211,13 @@
                             left: 50%;
                             transform: translateX(-50%);
                             top: -20px;
-                            border-bottom: 10px solid black;
+                            border-bottom: 10px solid #3e4861;
                             border-top: 10px solid transparent;
                         }
 
                         &.purple {
                             p::after {
-                                border-bottom: 10px solid purple;
+                                border-bottom: 10px solid #45936b;
                             }
                         }
                     }
